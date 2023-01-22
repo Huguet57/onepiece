@@ -1,3 +1,7 @@
+* {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
 #main {
     display: flex;
     flex-direction: row;
