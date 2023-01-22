@@ -15,6 +15,9 @@
                 const saga_title = document.createElement('h3');
                 const caps_div = document.createElement('div');
 
+                saga_div.classList.add('saga');
+                caps_div.classList.add('caps');
+
                 saga_title.innerHTML = `Saga ${saga}`;
                 saga_div.appendChild(saga_title);
 
@@ -22,6 +25,7 @@
                     const linkDiv = document.createElement('div');
                     const link = document.createElement('a');
                     link.innerHTML = `Capítol ${cap}`;
+                    linkDiv.classList.add('link');
 
                     let cap_3nums = ''
                     if (cap < 10) cap_3nums = '00' + String(cap)
