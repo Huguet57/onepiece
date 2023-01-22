@@ -13,10 +13,28 @@
             for (const saga of Object.keys(linksDict)) {
                 const saga_div = document.createElement('div');
                 const saga_title = document.createElement('h3');
+                const caps_div = document.createElement('div');
 
                 saga_title.innerHTML = `Saga ${saga}`;
                 saga_div.appendChild(saga_title);
 
+                for (const cap of linksDict[saga]) {
+                    const linkDiv = document.createElement('div');
+                    const link = document.createElement('a');
+                    link.innerHTML = `Capítol ${cap}`;
+
+                    let cap_3nums = ''
+                    if (cap < 10) cap_3nums = '00' + String(cap)
+                    else if (cap < 100) cap_3nums = '0' + String(cap)
+                    else if (cap < 1000) cap_3nums = String(cap)
+
+                    link.href = `https://multimedia.xarxacatala.cat/one-piece/saga-${saga}/op_cat-${cap_3nums}.mp4`;
+
+                    linkDiv.appendChild(link)
+                    caps_div.appendChild(linkDiv);
+                }
+
+                saga_div.appendChild(caps_div);
                 main.appendChild(saga_div);
             }
 
