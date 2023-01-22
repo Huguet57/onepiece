@@ -1,0 +1,12 @@
+#main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.saga {
+    padding: 20px;
+}
+
+.link a:visited {
+    color: red;
+}
