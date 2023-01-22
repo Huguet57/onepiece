@@ -1,5 +1,16 @@
 #main {
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#active {
+    flex: 1;
+}
+
+#inactive {
+    flex: 1;
+    display: flex;
     flex-wrap: wrap;
 }
 

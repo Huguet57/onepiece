@@ -6,12 +6,17 @@
     <body>
         <h1>One Piece Català</h1>
         <h3>Episodis extrets de Xarxa Català</h3>
-        <div id="main"></div>
+        <div id="main">
+            <div id="active"></div>
+            <div id="inactive"></div>
+        </div>
 
         <script src="./formatLinks.js"></script>
 
         <script>
             const main = document.querySelector('#main');
+            const activeDiv = document.querySelector('#active');
+            const inactiveDiv = document.querySelector('#inactive');
 
             for (const saga of Object.keys(linksDict)) {
                 const saga_div = document.createElement('div');
@@ -24,10 +29,10 @@
                     .map(s => parseInt(s))
                     [0] || false
                 
-                console.log(savedActive, saga, saga === savedActive)
+                const isActive = savedActive && parseInt(saga) === savedActive;
+                if (isActive) caps_div.classList.add('active');
 
                 saga_div.setAttribute('data-saga', saga);
-                if (savedActive && parseInt(saga) === savedActive) caps_div.classList.add('active');
 
                 saga_div.classList.add('saga');
                 caps_div.classList.add('caps');
@@ -48,6 +53,7 @@
                         const lastActiveSaga = lastActiveCaps.parentElement
                         const activeSaga = lastActiveSaga.getAttribute('data-saga')
                         document.cookie = `activeSaga=${activeSaga}`;
+                        window.location.reload()
                     }
                 })
 
@@ -69,7 +75,9 @@
                 }
 
                 saga_div.appendChild(caps_div);
-                main.appendChild(saga_div);
+
+                if (isActive) activeDiv.appendChild(saga_div);
+                else inactiveDiv.appendChild(saga_div);
             }
         </script>
     </body>
