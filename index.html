@@ -22,6 +22,13 @@
                 saga_title.innerHTML = `Saga ${saga}`;
                 saga_div.appendChild(saga_title);
 
+                saga_div.addEventListener('pointerup', ev => {
+                    const caps = ev.target.parentElement.querySelector('.caps');
+
+                    if (caps.classList.contains('active')) caps.classList.remove('active')
+                    else caps.classList.add('active')
+                })
+
                 for (const cap of linksDict[saga]) {
                     const linkDiv = document.createElement('div');
                     const link = document.createElement('a');

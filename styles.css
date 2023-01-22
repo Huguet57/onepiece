@@ -10,3 +10,11 @@
 .link a:visited {
     color: red;
 }
+
+.caps {
+    display: none;
+}
+
+.caps.active {
+    display: block;
+}
