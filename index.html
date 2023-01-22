@@ -6,5 +6,20 @@
         <div id="main"></div>
 
         <script src="./formatLinks.js"></script>
+
+        <script>
+            const main = document.querySelector('#main');
+
+            for (const saga of Object.keys(linksDict)) {
+                const saga_div = document.createElement('div');
+                const saga_title = document.createElement('h3');
+
+                saga_title.innerHTML = `Saga ${saga}`;
+                saga_div.appendChild(saga_title);
+
+                main.appendChild(saga_div);
+            }
+
+        </script>
     </body>
 </html>

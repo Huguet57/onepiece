@@ -23,12 +23,10 @@ const getCap = link => {
     return parseInt(cap)
 }
 
-let dict = {}
+let linksDict = {}
 const sagues = [...new Set(links.map(link => getSaga(link)))]
-sagues.forEach(saga => dict[saga] = [])
+sagues.forEach(saga => linksDict[saga] = [])
 
 links
     .map(link => [getSaga(link), getCap(link)])
-    .forEach(([saga, cap]) => dict[saga].push(cap))
-
-console.log(dict)
+    .forEach(([saga, cap]) => linksDict[saga].push(cap))
