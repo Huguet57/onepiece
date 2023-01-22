@@ -18,6 +18,17 @@
                 const saga_title = document.createElement('h3');
                 const caps_div = document.createElement('div');
 
+                const savedActive = document.cookie.split('; ')
+                    .filter(c => c.startsWith('activeSaga='))
+                    .map(c => c.replace('activeSaga=', ''))
+                    .map(s => parseInt(s))
+                    [0] || false
+                
+                console.log(savedActive, saga, saga === savedActive)
+
+                saga_div.setAttribute('data-saga', saga);
+                if (savedActive && parseInt(saga) === savedActive) caps_div.classList.add('active');
+
                 saga_div.classList.add('saga');
                 caps_div.classList.add('caps');
 
@@ -29,6 +40,15 @@
 
                     if (caps.classList.contains('active')) caps.classList.remove('active')
                     else caps.classList.add('active')
+
+                    const activeCaps = document.querySelectorAll('.caps.active');
+                    const lastActiveCaps = activeCaps.length > 0 ? activeCaps[activeCaps.length - 1] : false
+
+                    if (lastActiveCaps) {
+                        const lastActiveSaga = lastActiveCaps.parentElement
+                        const activeSaga = lastActiveSaga.getAttribute('data-saga')
+                        document.cookie = `activeSaga=${activeSaga}`;
+                    }
                 })
 
                 for (const cap of linksDict[saga]) {
@@ -51,7 +71,6 @@
                 saga_div.appendChild(caps_div);
                 main.appendChild(saga_div);
             }
-
         </script>
     </body>
 </html>
