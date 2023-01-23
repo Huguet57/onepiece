@@ -2,6 +2,10 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 
+body {
+    margin: 40px;
+}
+
 #main {
     display: flex;
     flex-direction: row;
@@ -20,6 +24,17 @@
 
 .saga {
     padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    background-color: beige;
+}
+
+.saga {
+    cursor: pointer;
+}
+
+.caps {
+    cursor: auto;
 }
 
 .link a:visited {
