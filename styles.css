@@ -22,6 +22,12 @@ body {
     flex-wrap: wrap;
 }
 
+@media only screen and (max-width: 600px) {
+    #main { 
+        flex-direction: column;
+    }
+}
+
 .saga {
     padding: 20px;
     margin: 20px;
